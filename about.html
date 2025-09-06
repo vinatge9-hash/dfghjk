@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>Aroma Cafe | About Us</title>
+  <meta name='description' content='Learn the story of Aroma Cafe, our passion for quality beans, and the community we nurture in Nadargul.'>
+
+  <!-- Font placeholders -->
+  <link rel='preload' href='https://fonts.example/inter.woff2' as='font' type='font/woff2' crossorigin>
+  <link rel='preload' href='https://fonts.example/lor a.woff2' as='font' type='font/woff2' crossorigin>
+
+  <script src='https://cdn.tailwindcss.com'></script>
+  <style>
+    .fade-in { opacity: 0; animation: fadeIn 0.8s ease forwards; }
+    @keyframes fadeIn { to { opacity: 1; transform: translateY(0); } }
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+  </style>
+</head>
+<body class='bg-white text-gray-800' style="font-family: 'Inter', sans-serif;">
+  <header class='w-full bg-white/90 backdrop-blur sticky top-0 z-40 border-b border-gray-200'>
+    <div class='max-w-7xl mx-auto px-4 py-4 flex items-center justify-between'>
+      <a href='index.html' class='text-2xl font-semibold' style="font-family: 'Lora', serif;">Aroma Cafe</a>
+      <nav>
+        <ul class='hidden md:flex space-x-6'>
+          <li><a href='index.html' class='hover:text-orange-600'>Home</a></li>
+          <li><a href='about.html' class='hover:text-orange-600'>About</a></li>
+          <li><a href='contact.html' class='hover:text-orange-600'>Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class='max-w-7xl mx-auto px-4 py-12'>
+    <section class='reveal'>
+      <div class='grid grid-cols-1 md:grid-cols-2 gap-8 items-center'>
+        <div>
+          <h1 class='text-4xl font-serif' style="font-family: 'Lora', serif;">Our Story</h1>
+          <p class='mt-4 text-gray-700'>Aroma Cafe began with a simple belief: great coffee is born from curiosity, respect for beans, and a desire to bring people together. From the first batch roasted in a small kitchen, to our bustling corner in Nadargul, our mission has remained the same — craft exceptional coffee while cultivating a warm community space.</p>
+          <p class='mt-3 text-gray-700'>We partner with ethical farms, source premium beans, and roast in small batches to ensure consistency, sweetness, and balance in every cup. The aroma that greets you is the story behind every bean — a story we’re proud to share with you.</p>
+        </div>
+        <div>
+          <img src="https://images.pexels.com/photos/7162369/pexels-photo-7162369.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt='Founders at Aroma Cafe' class='w-full rounded-lg shadow-lg'/>
+        </div>
+      </div>
+    </section>
+
+    <section class='reveal mt-12'>
+      <h2 class='text-2xl font-serif' style="font-family: 'Lora', serif;">Our Passion for Beans</h2>
+      <p class='text-gray-700 mt-4'>Quality starts with the bean. We work closely with growers who share our commitment to sustainability and flavor. Each origin brings a unique profile, from fruity Ethiopian aromatics to chocolatey Sumatran depth.</p>
+      <p class='text-gray-700 mt-3'>Roasting is an art and a science. Our in-house roastery crafts profiles that highlight the bean's character while maintaining balance and clarity in every cup.</p>
+    </section>
+  </main>
+
+  <footer class='bg-stone-900 text-gray-100'>
+    <div class='max-w-7xl mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-3 gap-8'>
+      <div>
+        <h4 class='text-2xl font-serif mb-2' style="font-family: 'Lora', serif;">Aroma Cafe</h4>
+        <p class='text-gray-300'>Crafting community through coffee, one cup at a time.</p>
+      </div>
+      <div>
+        <h5 class='text-xl mb-2' style="font-family: 'Lora', serif;">Quick Links</h5>
+        <ul class='text-gray-300 space-y-2'>
+          <li><a href='index.html' class='hover:text-orange-400'>Home</a></li>
+          <li><a href='contact.html' class='hover:text-orange-400'>Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class='text-xl mb-2' style="font-family: 'Lora', serif;">Newsletter</h5>
+        <form class='flex'>
+          <input aria-label='Email' type='email' placeholder='Your email' class='flex-1 px-3 py-2 rounded-l-md text-gray-800' />
+          <button type='submit' class='px-4 py-2 bg-orange-500 text-white rounded-r-md'>Subscribe</button>
+        </form>
+      </div>
+    </div>
+    <hr class='border-gray-700 mx-auto w-full' />
+    <p class='text-center text-gray-400 py-4'>&copy; 2025 Aroma Cafe. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Basic mobile nav toggle (reused)
+    const navToggle = document.getElementById('navToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (navToggle) {
+      navToggle.addEventListener('click', () => {
+        mobileMenu.style.display = mobileMenu.style.display === 'block' ? 'none' : 'block';
+      });
+    }
+    // Scroll reveal
+    const revealEls = document.querySelectorAll('.reveal');
+    const show = () => {
+      const triggerBottom = window.innerHeight * 0.85;
+      revealEls.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < triggerBottom) {
+          el.classList.add('visible');
+        }
+      });
+    };
+    window.addEventListener('scroll', show);
+    window.addEventListener('load', show);
+  </script>
+</body>
+</html>
